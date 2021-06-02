@@ -1,3 +1,13 @@
+
+
+function NewValue() {
+    if (Math.random() > .5) {
+        return Math.round(Math.random() * 100);
+    } else {
+        return (Math.random() * 100).toFixed(1);
+    }
+}
+
 axios.get(`https://www.taiwanstat.com/waters/latest`)
     .then((response) => {
         var dataObject = response.data;
@@ -14,3 +24,24 @@ axios.get(`https://www.taiwanstat.com/waters/latest`)
             var message = error.response.data.message;
         }
     );
+
+window.onload = function () {
+
+    
+    var config = liquidFillGaugeDefaultSettings();
+    config.circleThickness = 0.15;
+    config.circleColor = "#808015";
+    config.textColor = "#555500";
+    config.waveTextColor = "#FFFFAA";
+    config.waveColor = "#AAAA39";
+    config.textVertPosition = 0.8;
+    config.waveAnimateTime = 1000;
+    config.waveHeight = 0.05;
+    config.waveAnimate = true;
+    config.waveRise = false;
+    config.waveHeightScaling = false;
+    config.waveOffset = 0.25;
+    config.textSize = 0.75;
+    config.waveCount = 3;
+    var gauge = loadLiquidFillGauge("fillgauge", 60.44, config);
+}
