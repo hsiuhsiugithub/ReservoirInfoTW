@@ -1,10 +1,4 @@
-function NewValue() {
-    if (Math.random() > .5) {
-        return Math.round(Math.random() * 100);
-    } else {
-        return (Math.random() * 100).toFixed(1);
-    }
-}
+
 
 function setColor(config, percentage) {
     if (percentage < 25) {
@@ -48,9 +42,7 @@ axios.get(`https://www.taiwanstat.com/waters/latest`)
 
         for (let i = 0; i < Object.keys(dataObject[0]).length; i++) {
 
-            //圖像化數據
-            console.log(reservoirList[i])
-            console.log(dataObject[0][reservoirList[i]])
+            
 
             var config = liquidFillGaugeDefaultSettings();
             config.circleThickness = 0.15;
