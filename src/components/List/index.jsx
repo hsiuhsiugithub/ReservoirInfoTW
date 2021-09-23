@@ -1,6 +1,6 @@
 import React from 'react'
 import Item from '../Item'
-import axios from 'axios'
+import {apiReservoirRequest} from '../../api'
 
 export default function List() {
     const initReservoirList = []
@@ -8,7 +8,7 @@ export default function List() {
 
 
     React.useEffect(() => {
-        axios.get(`https://www.taiwanstat.com/waters/latest`).then(
+        apiReservoirRequest().then(
             response => {
                 const dataObject = response.data[0];
                 const reservoirNameList = ['新山水庫', '翡翠水庫', '石門水庫', '永和山水庫', '寶山水庫', '寶山第二水庫', '明德水庫', '鯉魚潭水庫'
@@ -36,8 +36,7 @@ export default function List() {
             },
             error => {
             }
-        )
-       
+        )       
     }, [])
 
 
